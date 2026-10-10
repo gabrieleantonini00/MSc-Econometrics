@@ -1,15 +1,13 @@
 # MSc Econometrics
 
-Python notebooks and data for MSc Econometrics exercises, organised by topic.
+Python exercises and datasets for the MSc Econometrics tutorials.
 
-## Distributions and rolling statistics
+The complete student material is in [Notebooks](Notebooks/), organised into tutorial subfolders. Download this repository as a ZIP and extract it, then upload the enclosed `Notebooks` folder to Google Drive > My Drive.
 
-[Distributions_RollingStatistics](Distributions_RollingStatistics/) contains:
+Open a notebook with Google Colab and run all cells, starting with **Environment setup**. Authorize Google Drive access when prompted. See [the notebook instructions](Notebooks/README.md) for other folder locations and local Jupyter use.
 
-- [Prices, returns and distributions](Distributions_RollingStatistics/Prices_Returns_Distributions.ipynb): simple and log returns, empirical distributions and a Normal benchmark.
-- [Rolling equity premium](Distributions_RollingStatistics/Rolling_Equity_Premium.ipynb): monthly excess returns, rolling statistics and t-tests.
-- [Tail risk and VaR](Distributions_RollingStatistics/Tail_Risk_VaR.ipynb): historical and Normal thresholds, with a holdout comparison.
+## Tutorials
 
-The CSV data are included alongside the notebooks. Sources are linked in the notebooks and recorded in `data_sources.json`.
+- [Distributions and rolling statistics](Notebooks/Distributions%26RollingStatistics/): prices and returns, rolling equity premium, and tail risk / VaR.
 
-Install the dependencies with `python -m pip install -r requirements.txt`, then run `jupyter lab` and open a notebook in the topic folder.
+Each tutorial includes its data alongside the notebooks.
