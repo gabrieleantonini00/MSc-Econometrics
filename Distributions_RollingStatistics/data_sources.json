@@ -1,0 +1,85 @@
+{
+  "description": "Readable teaching extracts; French returns in decimals, FRED observations in source units.",
+  "sources": {
+    "F-F_Research_Data_Factors_daily_CSV.zip": {
+      "download_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip",
+      "retrieved_utc": "2026-10-09T16:34:52.605520+00:00",
+      "sha256": "2f29e22546069914890a712680a6f81f3680ebc3543b52864484d209ca13a7db",
+      "bytes": 178184
+    },
+    "F-F_Research_Data_Factors_CSV.zip": {
+      "download_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+      "retrieved_utc": "2026-10-09T16:34:53.280252+00:00",
+      "sha256": "593f4fbef03181bc0b22ff6292f217689dd1fb79355049ca905d95b262040a66",
+      "bytes": 13065
+    },
+    "12_Industry_Portfolios_daily_CSV.zip": {
+      "download_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/12_Industry_Portfolios_daily_CSV.zip",
+      "retrieved_utc": "2026-10-09T16:34:54.466744+00:00",
+      "sha256": "cde9864260d22e42fdbd29a8a1272b8a0ab67aaf4d8cc6fd7898e11c448f06b1",
+      "bytes": 1093383
+    },
+    "DCOILBRENTEU_2010-01-01_2025-12-31.csv": {
+      "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DCOILBRENTEU&cosd=2010-01-01&coed=2025-12-31",
+      "retrieved_utc": "2026-10-09T16:34:56.288560+00:00",
+      "sha256": "c222b5bccbb17efeec8463cdffe18917291ccc79409f77263db80891f7ef7a30",
+      "bytes": 71314
+    },
+    "DHHNGSP_2010-01-01_2025-12-31.csv": {
+      "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DHHNGSP&cosd=2010-01-01&coed=2025-12-31",
+      "retrieved_utc": "2026-10-09T16:34:57.858561+00:00",
+      "sha256": "f6db307c77fecfd223e47fa3147d3d2389b673169fd9f24c4832a76a7362529a",
+      "bytes": 66188
+    },
+    "DEXUSEU_2010-01-01_2025-12-31.csv": {
+      "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXUSEU&cosd=2010-01-01&coed=2025-12-31",
+      "retrieved_utc": "2026-10-09T16:34:58.982739+00:00",
+      "sha256": "5bd0f58993b2196c8704e5397a619bc6cf2974f5334b1151c4320b6a2efbb00d",
+      "bytes": 74107
+    },
+    "DEXJPUS_2010-01-01_2025-12-31.csv": {
+      "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXJPUS&cosd=2010-01-01&coed=2025-12-31",
+      "retrieved_utc": "2026-10-09T16:35:00.351477+00:00",
+      "sha256": "fa45cd203f605cb3f9fcd69a33358e6d77b3b152046e71724de33bc8ac0071e2",
+      "bytes": 73163
+    },
+    "DEXUSUK_2010-01-01_2025-12-31.csv": {
+      "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXUSUK&cosd=2010-01-01&coed=2025-12-31",
+      "retrieved_utc": "2026-10-09T16:35:01.548453+00:00",
+      "sha256": "32f3f0ed3dc689cebee5bda2de6ceef7d38a34e1174799f747e050e7ac4904b2",
+      "bytes": 74107
+    },
+    "DCOILWTICO_2010-01-01_2025-12-31.csv": {
+      "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DCOILWTICO&cosd=2010-01-01&coed=2025-12-31",
+      "retrieved_utc": "2026-10-09T16:35:02.776115+00:00",
+      "sha256": "270e3717ef73cca88d199a9cc9f677c73e39af6c13ec598769e72c569aa84b0c",
+      "bytes": 70283
+    }
+  },
+  "files": {
+    "daily_market_data.csv": {
+      "sha256": "8673a5b77d8494a68047dbcbd0623b8881815f80d6ad12214adfdc0cff829f56",
+      "rows": 4173,
+      "columns": [
+        "Mkt-RF",
+        "RF",
+        "BusEq",
+        "Enrgy",
+        "Hlth",
+        "DCOILBRENTEU",
+        "DHHNGSP",
+        "DEXUSEU",
+        "DEXJPUS",
+        "DEXUSUK"
+      ]
+    },
+    "monthly_market_data.csv": {
+      "sha256": "c11855803cd3a71dcde85daaf98682beb94784d95b533d4080fbf6a76a81df1a",
+      "rows": 180,
+      "columns": [
+        "Mkt-RF",
+        "RF"
+      ]
+    }
+  }
+}
