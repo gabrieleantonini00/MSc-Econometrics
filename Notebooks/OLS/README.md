@@ -54,8 +54,10 @@ Follow the [shared setup instructions](../README.md). For Colab, upload the comp
 
 The market-only regression is CAPM-style; adding Brent gives an extended return
 regression. Neither regression alone validates the CAPM or identifies a causal
-oil-price effect. A three-dimensional fitted plane illustrates the multiple model;
-observed-versus-fitted plots compare the fit of both models in two dimensions.
+oil-price effect. Two two-dimensional slices illustrate each multiple-regression
+coefficient while holding the other regressor fixed at zero. A supplementary
+three-dimensional plane shows the same slices without the observation cloud.
+Observed-versus-fitted plots separately compare the fit of both models.
 
 The main output uses OLS coefficients with Newey–West HAC standard errors
 (Bartlett weights, three monthly lags, sample-size correction and an approximate
