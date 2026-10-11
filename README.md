@@ -8,6 +8,6 @@ Open a notebook with Google Colab and run all cells, starting with **Environment
 
 ## Tutorials
 
-- [Distributions and rolling statistics](Notebooks/Distributions%26RollingStatistics/): prices and returns, rolling equity premium, and tail risk / VaR.
+- [Financial Returns](Notebooks/Financial_Returns/): prices and returns, rolling equity premium, and tail risk / VaR.
 
 Each tutorial includes its data alongside the notebooks.

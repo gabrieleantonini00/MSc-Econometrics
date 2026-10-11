@@ -7,7 +7,7 @@ and data in its own subfolder. Additional tutorials can be added as sibling fold
 Notebooks/
   README.md
   requirements.txt
-  Distributions&RollingStatistics/
+  Financial_Returns/
     Prices_Returns_Distributions.ipynb
     Rolling_Equity_Premium.ipynb
     Tail_Risk_VaR.ipynb
@@ -47,13 +47,13 @@ notebook in its tutorial subfolder. The setup also works when Jupyter runs from
 the course folder or the tutorial folder. Set `NOTEBOOKS_ROOT` explicitly if
 Jupyter uses a different working directory.
 
-## Distributions and rolling statistics
+## Financial Returns
 
-[Distributions&RollingStatistics](Distributions%26RollingStatistics/) contains:
+[Financial Returns](Financial_Returns/) contains:
 
-- [Prices, returns and distributions](Distributions%26RollingStatistics/Prices_Returns_Distributions.ipynb): simple and log returns, empirical distributions and a Normal benchmark.
-- [Rolling equity premium](Distributions%26RollingStatistics/Rolling_Equity_Premium.ipynb): monthly excess returns, rolling statistics and t-tests.
-- [Tail risk and VaR](Distributions%26RollingStatistics/Tail_Risk_VaR.ipynb): historical and Normal thresholds, with a holdout comparison.
+- [Prices, returns and distributions](Financial_Returns/Prices_Returns_Distributions.ipynb): simple and log returns, empirical distributions and a Normal benchmark.
+- [Rolling equity premium](Financial_Returns/Rolling_Equity_Premium.ipynb): monthly excess returns, rolling statistics and t-tests.
+- [Tail risk and VaR](Financial_Returns/Tail_Risk_VaR.ipynb): historical and Normal thresholds, with a holdout comparison.
 
 The two CSV datasets are shared by the notebooks in this tutorial. Sources are
 linked in the notebooks and recorded in `data_sources.json`. Each dataset needs
