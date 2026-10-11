@@ -1,0 +1,55 @@
+{
+  "description": "Monthly teaching data for simple and multiple OLS regression.",
+  "estimation_sample": {
+    "start": "2011-01-31",
+    "end": "2025-12-31",
+    "observations": 180
+  },
+  "base_observation": "December 2010 is included only to calculate the first monthly Brent change.",
+  "sources": {
+    "energy_portfolio": {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/12_Industry_Portfolios_CSV.zip",
+      "retrieved_utc": "2026-10-11T01:06:33.588398+00:00",
+      "bytes": 139026,
+      "sha256": "309eb6b2bdbb5bc45f039b9814753b079cd40bd4038ffda9afb6c5e0563fd120",
+      "details_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_12_ind_port.html",
+      "selection": "Enrgy from Average Value Weighted Returns -- Monthly; source percentages divided by 100."
+    },
+    "market_and_risk_free": {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+      "retrieved_utc": "2026-10-11T01:06:33.295667+00:00",
+      "bytes": 13065,
+      "sha256": "593f4fbef03181bc0b22ff6292f217689dd1fb79355049ca905d95b262040a66",
+      "details_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_factors.html",
+      "selection": "Mkt-RF and RF from the monthly block; source percentages divided by 100."
+    },
+    "brent": {
+      "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DCOILBRENTEU&cosd=2010-01-01&coed=2025-12-31",
+      "retrieved_utc": "2026-10-09T16:34:56.288560+00:00",
+      "sha256": "c222b5bccbb17efeec8463cdffe18917291ccc79409f77263db80891f7ef7a30",
+      "bytes": 71314,
+      "details_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+      "input_extract_sha256": "8673a5b77d8494a68047dbcbd0623b8881815f80d6ad12214adfdc0cff829f56",
+      "selection": "Last available DCOILBRENTEU observation in each calendar month from the existing daily extract."
+    }
+  },
+  "columns": {
+    "date": "Calendar month-end label; not necessarily the date of the Brent observation.",
+    "Energy": "Monthly simple total return on the value-weighted US energy industry portfolio, decimal.",
+    "Market_excess": "Monthly US market return minus the matched monthly risk-free return, decimal.",
+    "RF": "Monthly risk-free return, decimal; not an annualised yield.",
+    "Brent_spot": "Last observed Brent spot price in the month, USD per barrel.",
+    "Brent_observation_date": "Date of the daily price used for Brent_spot."
+  },
+  "transformations": {
+    "Energy": "100 * (Energy - RF) in the notebook: energy excess return in percent.",
+    "Market": "100 * Market_excess in the notebook: market excess return in percent.",
+    "Brent": "100 * (Brent_spot_t / Brent_spot_(t-1) - 1): monthly spot-price change in percent; not a futures investment return.",
+    "sample": "Both regressions use the same 180 monthly observations; no forward filling."
+  },
+  "file": {
+    "name": "monthly_energy_market_data.csv",
+    "rows": 181,
+    "sha256": "5284fee25cc36a429ab346057d15b4342dcc8f6be0b158998a6dd5cc868144cd"
+  }
+}

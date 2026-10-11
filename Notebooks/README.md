@@ -14,6 +14,11 @@ Notebooks/
     daily_market_data.csv
     monthly_market_data.csv
     data_sources.json
+  OLS/
+    README.md
+    Simple_Multiple_Regression.ipynb
+    monthly_energy_market_data.csv
+    data_sources.json
 ```
 
 ## Google Colab
@@ -58,3 +63,14 @@ Jupyter uses a different working directory.
 The two CSV datasets are shared by the notebooks in this tutorial. Sources are
 linked in the notebooks and recorded in `data_sources.json`. Each dataset needs
 only one copy in this subfolder.
+
+## OLS
+
+[OLS](OLS/) contains the regression exercises:
+
+- [Simple and multiple regression](OLS/Simple_Multiple_Regression.ipynb): monthly
+  energy-sector excess returns, market exposure and Brent-price changes; interpretation
+  of coefficients, standard errors, p-values, confidence intervals and model fit.
+
+See the [exercise and data description](OLS/README.md). Each notebook uses the data
+included in its tutorial subfolder.

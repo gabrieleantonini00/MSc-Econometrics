@@ -10,4 +10,6 @@ Open a notebook with Google Colab and run all cells, starting with **Environment
 
 - [Financial Returns](Notebooks/Financial_Returns/): prices and returns, rolling equity premium, and tail risk / VaR.
 
+- [OLS](Notebooks/OLS/): simple and multiple regression of energy-sector returns on the market and Brent; interpretation of regression results.
+
 Each tutorial includes its data alongside the notebooks.
