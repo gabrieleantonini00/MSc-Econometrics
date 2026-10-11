@@ -59,11 +59,9 @@ coefficient while holding the other regressor fixed at zero. A supplementary
 three-dimensional plane shows the same slices without the observation cloud.
 Observed-versus-fitted plots separately compare the fit of both models.
 
-The main output uses OLS coefficients with Newey–West HAC standard errors
+Both models use OLS coefficients with the same Newey–West HAC standard errors
 (Bartlett weights, three monthly lags, sample-size correction and an approximate
-t reference). A final comparison includes conventional, HC1 and six-lag HAC
-standard errors. Residual checks show heteroskedasticity in the multiple model;
-serial-correlation checks do not establish that errors are independent.
+t reference). Only this HAC specification is included in the notebook.
 The technical treatment of robust inference is reserved for the later tutorial.
 Assignment prompts are kept in this exercise description; the notebook contains
 the analysis and explanatory notes.
