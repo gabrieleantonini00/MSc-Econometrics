@@ -59,7 +59,9 @@ coefficient while holding the other regressor fixed at zero, with identical axis
 scales to compare the slopes. Both lines meet the same intercept because both
 regressors are zero there. A supplementary
 three-dimensional plane shows the same slices without the observation cloud.
-Observed-versus-fitted plots separately compare the fit of both models.
+The model comparison retains the summary table and gives the formulas for
+R-squared, adjusted R-squared and omitted variable bias, including the exact
+sample identity linking the two market slopes.
 
 Both models use OLS coefficients with the same Newey–West HAC standard errors
 (Bartlett weights, three monthly lags, sample-size correction and an approximate
