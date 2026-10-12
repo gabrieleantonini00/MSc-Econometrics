@@ -1,6 +1,6 @@
 # OLS tutorials
 
-## Exercise 1. Simple and multiple regression
+## Simple and multiple regression (Tutorial II)
 
 Notebook: [Simple_Multiple_Regression.ipynb](Simple_Multiple_Regression.ipynb)
 
@@ -26,6 +26,37 @@ Compare it with the fitted value when both regressors are zero. Explain the
 contribution of each coefficient and why the fitted value is not a guaranteed
 realised return.
 
+## Heteroskedasticity (Tutorial III)
+
+Notebook: [Heteroskedasticity.ipynb](Heteroskedasticity.ipynb)
+
+Analyse the relationship between annual income and food expenditure for 235
+working-class Belgian households in 1857. Both variables are in Belgian francs.
+Estimate a simple OLS regression, inspect residual dispersion and compare
+conventional and HC3 standard errors on the same observations.
+
+### Relevant concepts
+
+- Homoskedasticity versus heteroskedasticity; conditional mean versus conditional variance.
+- Residual plots; interpretation of vertical dispersion at comparable income levels.
+- Studentised Breusch-Pagan test: null hypothesis, LM statistic and p-value.
+- OLS coefficients versus their estimated uncertainty; robust standard errors.
+- Confidence intervals; statistical versus economic significance; limits of robust inference.
+
+### To do
+
+Describe the pattern in the residual plots and distinguish a changing spread
+from a changing conditional mean. Interpret the variance-test p-value and
+compare the income coefficient's standard error and confidence interval before
+and after HC3. Explain why the coefficient and fitted line remain unchanged.
+
+The full-sample plot contains all households. A second panel enlarges the range
+covering the lowest 95% of incomes, with different axis ranges. This affects only
+the display: all regressions, tests and grouped summaries use all 235 observations.
+The highest-income observation is influential; it is retained throughout.
+The notebook contains the analysis and explanations, with no numbered sections
+or separate assignment prompts.
+
 ## Data
 
 `monthly_energy_market_data.csv` contains 181 month-end observations, December 2010
@@ -46,6 +77,15 @@ Returns are supplied as decimals; spot prices are in USD per barrel. The noteboo
 expresses its regression variables in percent. No live download or API key is
 needed. `data_sources.json` records sources, units, transformations and file hashes.
 
+`engel_data.csv` contains the two original Engel variables, `income` and
+`foodexp`, with 235 rows and no missing values. The CSV comes from the
+[official statsmodels repository](https://github.com/statsmodels/statsmodels/blob/v0.14.4/statsmodels/datasets/engel/engel.csv);
+the [dataset documentation](https://www.statsmodels.org/stable/datasets/generated/engel.html)
+defines the annual amounts in Belgian francs. All observations and source values
+are preserved, without inflation adjustment or standardisation. These are
+historical teaching data. `additional_datasets.engel_food_expenditure` in
+`data_sources.json` records their source, units, public-domain licence and hash.
+
 ## Running the notebook
 
 Follow the [shared setup instructions](../README.md). For Colab, upload the complete
@@ -63,7 +103,7 @@ The model comparison retains the summary table and gives the formulas for
 R-squared, adjusted R-squared and omitted variable bias, including the exact
 sample identity linking the two market slopes.
 
-Both models use OLS coefficients with the same Newey–West HAC standard errors
+The energy-return models use OLS coefficients with the same Newey–West HAC standard errors
 (Bartlett weights, three monthly lags, sample-size correction and an approximate
 t reference). Only this HAC specification is included in the notebook.
 The technical treatment of robust inference is reserved for the later tutorial.

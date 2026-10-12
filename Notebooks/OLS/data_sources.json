@@ -1,5 +1,5 @@
 {
-  "description": "Monthly teaching data for simple and multiple OLS regression.",
+  "description": "Teaching data for simple/multiple OLS and heteroskedasticity notebooks.",
   "estimation_sample": {
     "start": "2011-01-31",
     "end": "2025-12-31",
@@ -51,5 +51,27 @@
     "name": "monthly_energy_market_data.csv",
     "rows": 181,
     "sha256": "5284fee25cc36a429ab346057d15b4342dcc8f6be0b158998a6dd5cc868144cd"
+  },
+  "additional_datasets": {
+    "engel_food_expenditure": {
+      "description": "Cross-sectional income and food expenditure of 235 working-class Belgian households in 1857.",
+      "source_url": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/statsmodels/datasets/engel/engel.csv",
+      "documentation_url": "https://www.statsmodels.org/stable/datasets/generated/engel.html",
+      "source_version": "statsmodels v0.14.4; data agree with the installed statsmodels Engel dataset.",
+      "retrieved_utc": "2026-10-12T15:50:31.415477+00:00",
+      "original_reference": "Koenker, R. and Bassett, G. (1982), Robust Tests of Heteroscedasticity based on Regression Quantiles, Econometrica 50, 43-61.",
+      "licence": "Public domain, as documented by statsmodels.",
+      "columns": {
+        "income": "Annual household income, Belgian francs.",
+        "foodexp": "Annual household food expenditure, Belgian francs."
+      },
+      "transformations": "None. All 235 observations are retained in their original order; no inflation adjustment or standardisation.",
+      "file": {
+        "name": "engel_data.csv",
+        "rows": 235,
+        "bytes": 7941,
+        "sha256": "796c3da0406291dd324c51901b51386be12b5f52e330afaf69584f57c06ad45c"
+      }
+    }
   }
 }

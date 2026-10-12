@@ -17,7 +17,9 @@ Notebooks/
   OLS/
     README.md
     Simple_Multiple_Regression.ipynb
+    Heteroskedasticity.ipynb
     monthly_energy_market_data.csv
+    engel_data.csv
     data_sources.json
 ```
 
@@ -71,6 +73,10 @@ only one copy in this subfolder.
 - [Simple and multiple regression](OLS/Simple_Multiple_Regression.ipynb): monthly
   energy-sector excess returns, market exposure and Brent-price changes; interpretation
   of coefficients, standard errors, p-values, confidence intervals and model fit.
+
+- [Heteroskedasticity](OLS/Heteroskedasticity.ipynb): household income and food
+  expenditure; residual plots, a variance test, and conventional versus HC3
+  standard errors and confidence intervals.
 
 See the [exercise and data description](OLS/README.md). Each notebook uses the data
 included in its tutorial subfolder.
