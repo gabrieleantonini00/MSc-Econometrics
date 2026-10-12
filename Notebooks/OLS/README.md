@@ -57,6 +57,21 @@ The highest-income observation is influential; it is retained throughout.
 The notebook contains the analysis and explanations, with no numbered sections
 or separate assignment prompts.
 
+## Monte Carlo simulation
+
+Notebook: [Monte_Carlo_Simulation.ipynb](Monte_Carlo_Simulation.ipynb)
+
+Generate independent observations from a known simple-regression model with
+zero conditional mean and heteroskedastic errors. Run 1,000 replications for
+sample sizes of 100 and 200. Compare conventional, HC1 and HC3 standard errors
+using the same samples and the same approximate t reference.
+
+The notebook shows the OLS sampling distribution, empirical sampling SD,
+average estimated SE, interval width, 95% confidence-interval coverage and
+rejection rates for the true null that the slope equals 0.5. Monte Carlo SEs
+help distinguish simulation noise from departures from nominal coverage.
+Data are generated in the notebook, with a fixed seed; no additional CSV is needed.
+
 ## Data
 
 `monthly_energy_market_data.csv` contains 181 month-end observations, December 2010

@@ -18,6 +18,7 @@ Notebooks/
     README.md
     Simple_Multiple_Regression.ipynb
     Heteroskedasticity.ipynb
+    Monte_Carlo_Simulation.ipynb
     monthly_energy_market_data.csv
     engel_data.csv
     data_sources.json
@@ -78,5 +79,9 @@ only one copy in this subfolder.
   expenditure; residual plots, a variance test, and conventional versus HC3
   standard errors and confidence intervals.
 
-See the [exercise and data description](OLS/README.md). Each notebook uses the data
-included in its tutorial subfolder.
+- [Monte Carlo simulation](OLS/Monte_Carlo_Simulation.ipynb): repeated samples
+  from a known heteroskedastic model; conventional, HC1 and HC3 standard errors,
+  confidence-interval coverage, Type I error and simulation uncertainty.
+
+See the [exercise and data description](OLS/README.md). Empirical notebooks use
+the included data; the Monte Carlo notebook generates its own observations.
