@@ -63,7 +63,7 @@ Notebook: [Monte_Carlo_Simulation.ipynb](Monte_Carlo_Simulation.ipynb)
 
 Generate independent observations from a known simple-regression model with
 zero conditional mean and heteroskedastic errors. Run 10,000 replications for
-sample sizes of 100 and 200. Compare conventional, HC1 and HC3 standard errors
+sample sizes of 250 and 1,000. Compare conventional, HC1 and HC3 standard errors
 using the same samples and the same approximate t reference.
 
 The notebook shows the OLS sampling distribution, empirical sampling SD,
