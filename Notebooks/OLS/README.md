@@ -103,6 +103,32 @@ are pointwise coefficient intervals, not a simultaneous band or a formal test
 of coefficient equality. Assignment prompts stay here and in the tutorial PDF;
 the notebook contains the analysis and explanations.
 
+## Okun's law (Tutorial IV)
+
+Notebook: [Rolling_Regression_Parameter_Stability.ipynb](Rolling_Regression_Parameter_Stability.ipynb)
+
+Analyse quarterly US real GDP growth and unemployment changes for 1980Q1-2025Q3
+(183 quarters). Use simple percentage GDP growth, without annualisation, and
+unemployment changes in percentage points. Compare linear and quadratic OLS
+on the same sample, then examine the linear model in 40-quarter rolling windows.
+The quadratic model is estimated only over the full sample; no logarithms are used.
+All models use HAC standard errors with four quarterly lags, Bartlett weights,
+sample-size correction and approximate t inference.
+
+### Relevant concepts
+
+- Growth versus levels; percentage changes versus percentage points.
+- Quadratic regressors; linearity in coefficients; curvature; local slopes.
+- Fitted changes; same-sample comparisons; influential observations;
+  functional form versus parameter instability.
+
+### To do
+
+Compare the quadratic model's local slope at growth rates of -1% and 1%.
+Explain why its growth coefficient alone is not a constant slope at every
+growth rate. Comment on the fitted curves and rolling estimates, paying
+attention to the unusual quarters in 2020. All quarters remain in estimation.
+
 ## Data
 
 `monthly_energy_market_data.csv` contains 181 month-end observations, December 2010
@@ -145,6 +171,16 @@ again from the already-excess market return. The original stock observation date
 is retained alongside the month-end label. `rolling_capm_data_sources.json`
 records the sources, units, transformations and file hashes. No live download
 or API key is needed.
+
+`quarterly_okun_data.csv` contains 184 quarters, 1979Q4-2025Q3. The base quarter
+supplies the values for the first growth rate and unemployment difference;
+estimation uses the subsequent 183 quarters. Real GDP is the BEA's seasonally
+adjusted [GDPC1 series](https://fred.stlouisfed.org/series/GDPC1), and unemployment
+is the mean of all three monthly BLS [UNRATE observations](https://fred.stlouisfed.org/series/UNRATE)
+in each quarter. Incomplete quarters are excluded without imputation.
+`rolling_okun_data_sources.json` records the sources, units, sample and transformations.
+The application is a teaching adaptation of Ball, Leigh and Loungani's
+[Okun's Law: Fit at 50?](https://doi.org/10.1111/jmcb.12420), not a replication.
 
 ## Running the notebook
 

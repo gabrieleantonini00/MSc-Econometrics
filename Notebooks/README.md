@@ -20,11 +20,14 @@ Notebooks/
     Heteroskedasticity.ipynb
     Monte_Carlo_Simulation.ipynb
     Rolling_CAPM.ipynb
+    Rolling_Regression_Parameter_Stability.ipynb
     monthly_energy_market_data.csv
     monthly_capm_data.csv
+    quarterly_okun_data.csv
     engel_data.csv
     data_sources.json
     rolling_capm_data_sources.json
+    rolling_okun_data_sources.json
 ```
 
 ## Google Colab
@@ -89,6 +92,10 @@ only one copy in this subfolder.
 - [Rolling CAPM](OLS/Rolling_CAPM.ipynb): IBM and the broad US market;
   full-sample and 60-month rolling betas, HAC confidence intervals and
   interpretation of parameter stability.
+
+- [Okun's law](OLS/Rolling_Regression_Parameter_Stability.ipynb): quarterly US
+  GDP growth and unemployment changes; linear and quadratic OLS, coefficient
+  interpretation and 40-quarter rolling slopes.
 
 See the [exercise and data description](OLS/README.md). Empirical notebooks use
 the included data; the Monte Carlo notebook generates its own observations.

@@ -1,0 +1,56 @@
+{
+  "description": "Quarterly US real GDP and unemployment for linear, quadratic and rolling OLS.",
+  "retrieved_on": "2026-10-13",
+  "sources": {
+    "real_gdp": {
+      "series": "GDPC1",
+      "url": "https://fred.stlouisfed.org/series/GDPC1",
+      "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GDPC1&cosd=1979-10-01&coed=2025-12-31",
+      "source": "US Bureau of Economic Analysis",
+      "units": "Billions of chained 2017 dollars, seasonally adjusted annual rate",
+      "raw_sha256": "24e20e2d2ae950bde53c86c40ce27b9939487a1303577b4d1ff6a06990a05502"
+    },
+    "unemployment": {
+      "series": "UNRATE",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE&cosd=1979-10-01&coed=2025-12-31",
+      "source": "US Bureau of Labor Statistics",
+      "units": "Percent, seasonally adjusted",
+      "aggregation": "Arithmetic mean of all three months; incomplete quarters are not averaged.",
+      "raw_sha256": "5e84cb7fa31a6b7eda396b992f4bd0abb3c7f46f2da95eb779398138939d50be"
+    }
+  },
+  "file": {
+    "name": "quarterly_okun_data.csv",
+    "rows": 184,
+    "sha256": "d330a072aec529b3dac8e97936c9f0fcc75e87fdc54a375e20a9d4ebdd0291b6"
+  },
+  "base_quarter": "1979Q4, for the first difference only",
+  "estimation_sample": {
+    "start": "1980Q1",
+    "end": "2025Q3",
+    "observations": 183
+  },
+  "missing_data": {
+    "October_2025": "Not collected by BLS; 2025Q4 excluded, no imputation.",
+    "source": "https://www.bls.gov/cps/methods/2025-federal-government-shutdown-impact-cps.htm"
+  },
+  "transformations": [
+    "growth = 100 * (real_gdp / lagged_real_gdp - 1), not annualised",
+    "change_u = difference of quarterly unemployment rate, in percentage points",
+    "growth_sq = growth squared"
+  ],
+  "paper": {
+    "authors": "Ball, Leigh and Loungani",
+    "year": 2017,
+    "title": "Okun's Law: Fit at 50?",
+    "doi": "10.1111/jmcb.12420",
+    "scope": "Teaching adaptation of the changes equation, not an exact replication."
+  },
+  "scope": "Teaching application for Tutorial IV, with included data; the fuller original is retained outside the student folder.",
+  "model": {
+    "quadratic": "Full-sample model only",
+    "rolling": "Linear model only, 40 consecutive quarters",
+    "covariance": "HAC, Bartlett weights, four quarterly lags, finite-sample correction, approximate t inference"
+  }
+}
