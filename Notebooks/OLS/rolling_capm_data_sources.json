@@ -1,0 +1,56 @@
+{
+  "description": "Monthly IBM adjusted prices, broad US market excess returns and matched risk-free returns for rolling CAPM.",
+  "prepared_on": "2026-10-13",
+  "stock": {
+    "ticker": "IBM",
+    "source": "Alpha Vantage TIME_SERIES_MONTHLY_ADJUSTED",
+    "documentation": "https://www.alphavantage.co/documentation/",
+    "download_url": "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=IBM&apikey=demo",
+    "retrieved_on": "2026-10-13",
+    "source_metadata": {
+      "1. Information": "Monthly Adjusted Prices and Volumes",
+      "2. Symbol": "IBM",
+      "3. Last Refreshed": "2026-10-12",
+      "4. Time Zone": "US/Eastern"
+    },
+    "column": "5. adjusted close",
+    "units": "USD, adjusted for dividends and splits",
+    "raw_sha256": "c0b3d19cf26862089a8c543b5b4384d5b81d5b5912012974d933ad72ae2b8e95"
+  },
+  "market_and_rf": {
+    "source": "Kenneth R. French Data Library, Fama/French 3 Factors",
+    "documentation": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_factors.html",
+    "download_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+    "retrieved_utc": "2026-10-11T01:06:33.295667+00:00",
+    "raw_sha256": "593f4fbef03181bc0b22ff6292f217689dd1fb79355049ca905d95b262040a66",
+    "market": "CRSP value-weighted US market return minus the one-month risk-free return (Mkt-RF)",
+    "RF": "One-month risk-free return; source monthly return, not annual yield",
+    "conversion": "Original percentage returns divided by 100 in the CSV"
+  },
+  "file": {
+    "name": "monthly_capm_data.csv",
+    "rows": 313,
+    "sha256": "742d64518a6fdd243a8ffca6bd8df5b2628b32c82a8095f874c3eef5859e0c6a"
+  },
+  "date_labels": "Calendar month-end; Stock_observation_date retains the actual source trading date.",
+  "base_month": "December 1999, used only to calculate the January 2000 stock return",
+  "estimation_sample": {
+    "start": "2000-01",
+    "end": "2025-12",
+    "observations": 312
+  },
+  "transformations": [
+    "Stock_return = adjusted_close / lagged_adjusted_close - 1",
+    "Stock_excess = Stock_return - RF; dividends are not added again",
+    "Market_excess is already Mkt-RF; RF is not subtracted again",
+    "Both regression returns multiplied by 100, giving percentage-point units"
+  ],
+  "exclusions": "All months after December 2025 excluded, including the partial latest source month.",
+  "model": {
+    "window_months": 60,
+    "rolling_estimates": 253,
+    "intercept": true,
+    "covariance": "HAC, Bartlett weights, 3 monthly lags, n/(n-2) correction, approximate t inference"
+  },
+  "scope": "Teaching notebook distributed with its matched monthly data; other exploratory notebooks are separate."
+}

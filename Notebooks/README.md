@@ -19,9 +19,12 @@ Notebooks/
     Simple_Multiple_Regression.ipynb
     Heteroskedasticity.ipynb
     Monte_Carlo_Simulation.ipynb
+    Rolling_CAPM.ipynb
     monthly_energy_market_data.csv
+    monthly_capm_data.csv
     engel_data.csv
     data_sources.json
+    rolling_capm_data_sources.json
 ```
 
 ## Google Colab
@@ -82,6 +85,10 @@ only one copy in this subfolder.
 - [Monte Carlo simulation](OLS/Monte_Carlo_Simulation.ipynb): repeated samples
   from a known heteroskedastic model; conventional, HC1 and HC3 standard errors,
   confidence-interval coverage, Type I error and simulation uncertainty.
+
+- [Rolling CAPM](OLS/Rolling_CAPM.ipynb): IBM and the broad US market;
+  full-sample and 60-month rolling betas, HAC confidence intervals and
+  interpretation of parameter stability.
 
 See the [exercise and data description](OLS/README.md). Empirical notebooks use
 the included data; the Monte Carlo notebook generates its own observations.

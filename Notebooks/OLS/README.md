@@ -72,6 +72,37 @@ rejection rates for the true null that the slope equals 0.5. Monte Carlo SEs
 help distinguish simulation noise from departures from nominal coverage.
 Data are generated in the notebook, with a fixed seed; no additional CSV is needed.
 
+## Rolling CAPM (Tutorial IV)
+
+Notebook: [Rolling_CAPM.ipynb](Rolling_CAPM.ipynb)
+
+Analyse IBM's monthly excess returns and the broad US market excess return for
+January 2000-December 2025 (312 months). Compare the full-sample CAPM regression
+with 60-month rolling regressions, each with its own intercept and slope.
+The 253 complete windows include both the first and the last available window.
+All estimates use OLS coefficients with Newey-West HAC standard errors (Bartlett
+weights, three monthly lags, sample-size correction and approximate t inference).
+
+### Relevant concepts
+
+- Simple and excess returns; alpha; market beta; coefficient units.
+- Standard errors; zero-coefficient tests; p-values; confidence intervals; R-squared.
+- Full-sample versus rolling estimates; window length; precision and recency.
+- Parameter stability; pointwise intervals; overlapping windows; sampling variation.
+
+### To do
+
+Calculate the fitted IBM excess return when the market excess return is 1%,
+using first the full-sample coefficients and then those for the window ending
+in December 2025. Interpret the difference and comment on the rolling beta plot.
+Explain why beta equal to 1 means market-like sensitivity and why a changing
+estimate alone does not establish a structural break.
+
+Adjacent windows share 59 of their 60 observations. The plotted 95% intervals
+are pointwise coefficient intervals, not a simultaneous band or a formal test
+of coefficient equality. Assignment prompts stay here and in the tutorial PDF;
+the notebook contains the analysis and explanations.
+
 ## Data
 
 `monthly_energy_market_data.csv` contains 181 month-end observations, December 2010
@@ -100,6 +131,20 @@ defines the annual amounts in Belgian francs. All observations and source values
 are preserved, without inflation adjustment or standardisation. These are
 historical teaching data. `additional_datasets.engel_food_expenditure` in
 `data_sources.json` records their source, units, public-domain licence and hash.
+
+`monthly_capm_data.csv` contains 313 month-end rows, December 1999 to December
+2025. The first row supplies the stock's base price; estimation uses the subsequent
+312 months. IBM adjusted prices come from
+[Alpha Vantage](https://www.alphavantage.co/documentation/), and the market excess
+return and matched monthly RF come from the
+[Kenneth French factor data](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_factors.html).
+Prices are adjusted for dividends and splits; the notebook computes simple stock
+returns without adding dividends again. Market excess returns and RF are stored
+as decimals. RF is subtracted once from the stock return, and is not subtracted
+again from the already-excess market return. The original stock observation date
+is retained alongside the month-end label. `rolling_capm_data_sources.json`
+records the sources, units, transformations and file hashes. No live download
+or API key is needed.
 
 ## Running the notebook
 
