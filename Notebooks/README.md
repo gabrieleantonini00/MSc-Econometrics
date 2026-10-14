@@ -28,6 +28,13 @@ Notebooks/
     data_sources.json
     rolling_capm_data_sources.json
     rolling_okun_data_sources.json
+  Time_Series/
+    README.md
+    Autocorrelations.ipynb
+    GDP_Growth_AR_Forecasting.ipynb
+    daily_us_market_returns.csv
+    quarterly_real_gdp.csv
+    data_sources.json
 ```
 
 ## Google Colab
@@ -99,3 +106,16 @@ only one copy in this subfolder.
 
 See the [exercise and data description](OLS/README.md). Empirical notebooks use
 the included data; the Monte Carlo notebook generates its own observations.
+
+## Time Series
+
+[Time Series](Time_Series/) contains the Tutorial V notebooks:
+
+- [Autocorrelations](Time_Series/Autocorrelations.ipynb): daily US market log
+  returns in 2021-2025, ACF, a five-lag Ljung-Box test and dependence in return magnitudes.
+- [GDP growth and AR forecasting](Time_Series/GDP_Growth_AR_Forecasting.ipynb):
+  United States, Germany and Italy; AR order selection, persistence, oscillatory
+  modes, sample sensitivity and held-out one-step forecasts.
+
+See the [exercise and data description](Time_Series/README.md). Data are included
+in the subfolder.

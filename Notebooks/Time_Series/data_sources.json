@@ -1,0 +1,69 @@
+{
+  "description": "Frozen teaching datasets for Tutorial V; notebooks require no live downloads.",
+  "prepared_on": "2026-10-13",
+  "gdp": {
+    "retrieved_on": "2026-10-13",
+    "sources": {
+      "United States": {
+        "series": "GDPC1",
+        "url": "https://fred.stlouisfed.org/series/GDPC1",
+        "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GDPC1&cosd=1979-10-01&coed=2025-12-31",
+        "input": "tmp/rolling-okun/GDPC1.csv; downloaded earlier on 2026-10-13",
+        "raw_sha256": "24e20e2d2ae950bde53c86c40ce27b9939487a1303577b4d1ff6a06990a05502"
+      },
+      "Germany and Italy": {
+        "dataset": "namq_10_gdp",
+        "unit": "CLV20_MEUR",
+        "s_adj": "SCA",
+        "na_item": "B1GQ",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table?lang=en",
+        "download_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/namq_10_gdp?geo=DE&geo=IT&unit=CLV20_MEUR&s_adj=SCA&na_item=B1GQ&sinceTimePeriod=1995-Q1&untilTimePeriod=2025-Q4",
+        "updated": "2026-10-09T23:00:00+0200",
+        "raw_sha256": "1ef19c7137cf1c8cead7e294109226ef11128e9f7703eeb140ae492b9ad16a55"
+      }
+    },
+    "units": {
+      "United States": "Billions of chained 2017 USD, seasonally adjusted annual rate; BEA",
+      "Germany": "Chain linked volumes (2020), million euro, seasonally and calendar adjusted; Eurostat",
+      "Italy": "Chain linked volumes (2020), million euro, seasonally and calendar adjusted; Eurostat"
+    },
+    "level_sample": "1996Q1-2025Q4 (120 quarters); first quarter is a growth base",
+    "growth_sample": "1996Q2-2025Q4 (119 quarters)",
+    "sample_choice": "Italy has no 1995 values in this Eurostat extract; start all three series in 1996Q1, without imputation.",
+    "source_flags": {
+      "Germany": "2023Q1-2025Q4 flagged provisional (p)",
+      "Italy": "2010Q1 flagged break in time series (b); retained and disclosed, no invented adjustment"
+    },
+    "transform": "100 * first difference of natural log of quarterly real GDP; not annualised",
+    "vintage": "Current-vintage revised values downloaded on preparation date, not a real-time vintage.",
+    "copyright": {
+      "United States": "Public domain; BEA/FRED attribution",
+      "Germany and Italy": "European Union/Eurostat; attribution retained; https://ec.europa.eu/info/legal-notice_en"
+    }
+  },
+  "market": {
+    "source": "Kenneth French Data Library, daily Fama/French research factors",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_factors.html",
+    "original_download_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip",
+    "original_retrieval": "2026-10-09; see Financial_Returns/data_sources.json",
+    "input": "Financial_Returns/daily_market_data.csv",
+    "input_sha256": "8673a5b77d8494a68047dbcbd0623b8881815f80d6ad12214adfdc0cff829f56",
+    "units": "Decimal daily simple returns. market_return = Mkt-RF + RF.",
+    "definition": "Broad value-weighted US CRSP equity market, including distributions; not an index price series.",
+    "sample": "2010-01-04 to 2025-12-31",
+    "notebook_analysis_sample": "2021-01-04 to 2025-12-31; 1,255 trading sessions; one contiguous sample after 2020",
+    "notebook_sample_updated_on": "2026-10-14",
+    "notebook_transform": "100 * log(1 + market_return); observations ordered by trading session; no holiday filling"
+  },
+  "files": {
+    "quarterly_real_gdp.csv": {
+      "rows": 120,
+      "sha256": "8ee64b53755405305645b756af31cdf41b9ec453a7bd17bb82b2dbb8bb9a9cf2"
+    },
+    "daily_us_market_returns.csv": {
+      "rows": 4024,
+      "sha256": "018b08b5c63fa1a052cf4d9d1eecb3309949e4712881d678bbf4054b42cc84d1"
+    }
+  },
+  "distribution": "Course repository: https://github.com/gabrieleantonini00/MSc-Econometrics/tree/main/Notebooks/Time_Series"
+}
