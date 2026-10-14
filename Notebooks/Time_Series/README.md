@@ -35,45 +35,41 @@ ACF of squared demeaned returns.
 
 Notebook: [GDP_Growth_AR_Forecasting.ipynb](GDP_Growth_AR_Forecasting.ipynb)
 
-Analyse quarterly real GDP log growth in the United States, Germany and Italy
-for 1996Q2-2025Q4 (119 quarters per country). Compare ACF/PACF plots, choose
-contiguous AR orders 0-8 using a common estimation sample, and interpret
-coefficients, long-run means and residual diagnostics. Estimate AR(1) and AR(2)
-benchmarks alongside the BIC-selected models, with a sample-ending sensitivity
-comparison through 2019Q4.
+Analyse quarterly real GDP log growth in the United States and Germany for
+1996Q2-2019Q4 (95 quarters per country), before the pandemic. Follow the OLS
+notebook structure: data, ACF/PACF, model and lag selection, estimates,
+coefficient interpretation, persistence and a next-quarter forecast.
 
-Examine impulse responses and dynamic eigenvalues. Complex modes can imply a
-damped oscillation; its period is not automatically the average duration of
-the business cycle. This sample does not support a sustained multi-year cycle
-from the fitted growth AR models. Do not force an order or average short,
-rapidly damped oscillations across countries to obtain a desired duration.
+Compare contiguous AR orders 0-8 on the same 87 estimation quarters. BIC
+selects AR(1) for both countries. Interpret the intercept, lag coefficient,
+long-run mean, coefficient uncertainty and residual Ljung-Box p-value.
+Plot the decay of a one-percentage-point growth innovation. Forecast 2020Q1
+from origin 2019Q4 and compare with the held-out observation; the prediction
+interval conditions on the estimated model. This historical exercise uses
+revised data and illustrates the difficulty of forecasting an exceptional event.
 
-Evaluate eight sequential one-step forecasts for 2024Q1-2025Q4, with order
-selection and coefficients estimated only through 2023Q4. Compare them with
-historical-mean and last-observation forecasts. Then use the full dataset for
-a next-quarter forecast, 2026Q1 from origin 2025Q4, and a five-quarter path with
-conditional prediction intervals. These are historical teaching forecasts
-using revised data, not a current economic outlook or a real-time backtest.
+A single final table extends the sample through 2025Q4. It shows how lag
+selection and AR(1) estimates depend on the sample. The main analysis uses
+every pre-2020 quarter; the comparison retains every quarter through 2025.
+Positive AR(1) persistence describes decay, not an average business-cycle period.
 
 ### Relevant concepts
 
 - Real GDP levels versus quarterly growth; annual-rate levels versus annualised growth.
 - ACF and PACF; AR(p); conditional OLS; intercept and long-run mean.
 - AIC/BIC; common hold-back; order selection versus residual adequacy.
-- Stability; persistence; impulse responses; roots and dynamic eigenvalues.
-- Oscillatory periods versus business-cycle durations; damping; sample sensitivity.
-- Forecast origins; one-step versus multi-step forecasts; holdout leakage; MAE/RMSE.
+- Stability; persistence; impulse responses; sample sensitivity.
+- Forecast origin; one-step forecasts; held-out observations; forecast errors.
 - Prediction intervals; parameter uncertainty; revised versus real-time observations.
 
 ### To do
 
 Explain why candidate orders must be compared on the same dependent-variable
-sample and why AR(0) can be selected. Compare the estimated AR(1) persistence
-through 2019 and through 2025. For an AR(2) with a complex pair, calculate the
-implied period in years and the envelope half-life, then assess whether those
-numbers describe a sustained business cycle. Interpret the held-out forecast
-errors and the next-quarter forecast, distinguishing a flat conditional mean
-from constant realised growth.
+sample. Interpret the AR(1) coefficients and long-run means, and calculate the
+effect of a one-point growth innovation after one and two quarters. Interpret
+the 2020Q1 forecasts and errors, distinguishing model uncertainty from an
+exceptional event. Explain why adding 2020-2025 changes the selected order and
+why AR(0) selection is not proof of an absence of economic dynamics.
 
 ## Data
 
@@ -86,20 +82,22 @@ the existing course dataset, originally retrieved on 9 October 2026 from the
 Dates without French market returns are excluded; no market holiday is filled.
 The market is the broad value-weighted US CRSP equity market, not a price index.
 
-`quarterly_real_gdp.csv` contains 120 complete quarters, 1996Q1-2025Q4. The first
-quarter is a growth base. US GDP comes from the BEA's
+`quarterly_real_gdp.csv` contains US and German GDP for 120 complete quarters,
+1996Q1-2025Q4. The first quarter is a growth base. Main analysis stops at 2019Q4;
+later observations are used only for the held-out forecast outcome and final
+sensitivity comparison. US GDP comes from the BEA's
 [GDPC1](https://fred.stlouisfed.org/series/GDPC1), in billions of chained 2017
-dollars at a seasonally adjusted annual rate. Germany and Italy come directly
+dollars at a seasonally adjusted annual rate. Germany comes directly
 from [Eurostat's quarterly national accounts](https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table?lang=en),
 `namq_10_gdp`, with `freq=Q`, `unit=CLV20_MEUR`, `s_adj=SCA`, `na_item=B1GQ`
-and `geo=DE/IT`: chain-linked volumes (2020), million euro, seasonally and
+and `geo=DE`: chain-linked volumes (2020), million euro, seasonally and
 calendar adjusted. Sources were retrieved on 13 October 2026; the US extract
-was already downloaded for the Okun notebook on that date. There is no Italian
-1995 data in this Eurostat extract, so the common level sample begins in 1996.
+was already downloaded for the Okun notebook on that date. The German values
+are extracted from the archived Eurostat response. The fixed level sample
+begins in 1996Q1.
 
-Eurostat flags German 2023Q1-2025Q4 observations as provisional, and Italian
-2010Q1 as a break in the time series. All these values remain in the analysis;
-the flags are disclosed without an invented adjustment. No missing quarters
+Eurostat flags German 2023Q1-2025Q4 observations as provisional; these remain
+in the final sensitivity comparison. No missing quarters
 are interpolated. Growth is `100 * diff(log(GDP))`, without annualisation.
 Source URLs, retrieval dates, source flags, transformations and SHA-256 hashes
 are recorded in `data_sources.json`. Eurostat/European Union attribution is

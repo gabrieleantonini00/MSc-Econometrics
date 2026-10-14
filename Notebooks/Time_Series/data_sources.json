@@ -11,7 +11,7 @@
         "input": "tmp/rolling-okun/GDPC1.csv; downloaded earlier on 2026-10-13",
         "raw_sha256": "24e20e2d2ae950bde53c86c40ce27b9939487a1303577b4d1ff6a06990a05502"
       },
-      "Germany and Italy": {
+      "Germany": {
         "dataset": "namq_10_gdp",
         "unit": "CLV20_MEUR",
         "s_adj": "SCA",
@@ -19,27 +19,33 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table?lang=en",
         "download_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/namq_10_gdp?geo=DE&geo=IT&unit=CLV20_MEUR&s_adj=SCA&na_item=B1GQ&sinceTimePeriod=1995-Q1&untilTimePeriod=2025-Q4",
         "updated": "2026-10-09T23:00:00+0200",
-        "raw_sha256": "1ef19c7137cf1c8cead7e294109226ef11128e9f7703eeb140ae492b9ad16a55"
+        "raw_sha256": "1ef19c7137cf1c8cead7e294109226ef11128e9f7703eeb140ae492b9ad16a55",
+        "extraction": "Germany only (geo=DE), from the archived Eurostat response"
       }
     },
     "units": {
       "United States": "Billions of chained 2017 USD, seasonally adjusted annual rate; BEA",
-      "Germany": "Chain linked volumes (2020), million euro, seasonally and calendar adjusted; Eurostat",
-      "Italy": "Chain linked volumes (2020), million euro, seasonally and calendar adjusted; Eurostat"
+      "Germany": "Chain linked volumes (2020), million euro, seasonally and calendar adjusted; Eurostat"
     },
     "level_sample": "1996Q1-2025Q4 (120 quarters); first quarter is a growth base",
     "growth_sample": "1996Q2-2025Q4 (119 quarters)",
-    "sample_choice": "Italy has no 1995 values in this Eurostat extract; start all three series in 1996Q1, without imputation.",
+    "sample_choice": "Main analysis: 1996Q2-2019Q4, before the pandemic. The complete contiguous sample through 2025Q4 is used only for the final sensitivity comparison.",
     "source_flags": {
-      "Germany": "2023Q1-2025Q4 flagged provisional (p)",
-      "Italy": "2010Q1 flagged break in time series (b); retained and disclosed, no invented adjustment"
+      "Germany": "2023Q1-2025Q4 flagged provisional (p)"
     },
     "transform": "100 * first difference of natural log of quarterly real GDP; not annualised",
     "vintage": "Current-vintage revised values downloaded on preparation date, not a real-time vintage.",
     "copyright": {
       "United States": "Public domain; BEA/FRED attribution",
-      "Germany and Italy": "European Union/Eurostat; attribution retained; https://ec.europa.eu/info/legal-notice_en"
-    }
+      "Germany": "European Union/Eurostat; attribution retained; https://ec.europa.eu/info/legal-notice_en"
+    },
+    "countries": [
+      "United States",
+      "Germany"
+    ],
+    "main_analysis_sample": "1996Q2-2019Q4 (95 growth quarters); candidate models share 87 estimation quarters, 1998Q2-2019Q4, with hold_back=8",
+    "forecast": "One-step historical forecast of 2020Q1 from origin 2019Q4; the observed 2020Q1 value is held out of order selection and estimation.",
+    "revised_on": "2026-10-14"
   },
   "market": {
     "source": "Kenneth French Data Library, daily Fama/French research factors",
@@ -58,7 +64,12 @@
   "files": {
     "quarterly_real_gdp.csv": {
       "rows": 120,
-      "sha256": "8ee64b53755405305645b756af31cdf41b9ec453a7bd17bb82b2dbb8bb9a9cf2"
+      "sha256": "ae78abb8411e7110c03f6d090b6cf0eb2a39f9705a8b1df72087cc3e8d15b550",
+      "columns": [
+        "quarter",
+        "United States",
+        "Germany"
+      ]
     },
     "daily_us_market_returns.csv": {
       "rows": 4024,

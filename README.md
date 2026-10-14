@@ -12,6 +12,6 @@ Open a notebook with Google Colab and run all cells, starting with **Environment
 
 - [OLS](Notebooks/OLS/): simple and multiple regression of energy-sector returns on the market and Brent; heteroskedasticity and robust inference; Monte Carlo simulation; rolling CAPM; and Okun's law with linear, quadratic and rolling regressions.
 
-- [Time Series](Notebooks/Time_Series/): autocorrelations and the Ljung-Box test for daily US market returns in 2021-2025; GDP growth dynamics in the United States, Germany and Italy; AR order selection, persistence and forecasting.
+- [Time Series](Notebooks/Time_Series/): autocorrelations and the Ljung-Box test for daily US market returns in 2021-2025; pre-2020 GDP growth dynamics in the United States and Germany; AR order selection, persistence and a next-quarter forecast, with a short comparison through 2025.
 
 Each tutorial includes its data alongside the notebooks.
