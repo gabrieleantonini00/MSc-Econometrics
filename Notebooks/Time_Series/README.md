@@ -31,22 +31,27 @@ Explain why neither rejection nor failure to reject establishes a profitable
 strategy or validates market efficiency. Compare the ACF of returns with the
 ACF of squared demeaned returns.
 
-## GDP growth dynamics and forecasting (old exercises 15 and 16)
+## US real GNP growth dynamics and forecasting (old exercises 15 and 16)
 
-Notebook: [GDP_Growth_AR_Forecasting.ipynb](GDP_Growth_AR_Forecasting.ipynb)
+Notebook: [GNP_Growth_AR_Forecasting.ipynb](GNP_Growth_AR_Forecasting.ipynb)
 
-Analyse quarterly real GDP log growth in the United States and Germany for
-1996Q2-2019Q4 (95 quarters per country), before the pandemic. Follow the OLS
+Analyse quarterly US real Gross National Product (GNP) log growth for
+1947Q2-2019Q4 (291 quarters), before the pandemic. Follow the OLS
 notebook structure: data, ACF/PACF, model and lag selection, estimates,
 coefficient interpretation, persistence and a next-quarter forecast.
 
-Compare contiguous AR orders 0-8 on the same 87 estimation quarters. BIC
-selects AR(1) for both countries. Interpret the intercept, lag coefficient,
+Compare contiguous AR orders 0-8 on the same 283 estimation quarters. BIC
+selects AR(1), while AIC selects AR(3). Compare both models' intercepts, lag coefficients,
 long-run mean, coefficient uncertainty and residual Ljung-Box p-value.
-Plot the decay of a one-percentage-point growth innovation. Forecast 2020Q1
+Compare their responses to a one-percentage-point growth innovation, with a
+separate enlarged view of the small oscillatory tail. The AR(3) complex pair
+implies a period of about 10.7 quarters (2.7 years), with an envelope half-life
+of about one quarter. Its rapid damping makes this a model-implied oscillation,
+rather than an estimate of the average duration of observed business cycles.
+Forecast 2020Q1 with both models
 from origin 2019Q4 and compare with the held-out observation; the prediction
 interval conditions on the estimated model. This historical exercise uses
-revised data and illustrates the difficulty of forecasting an exceptional event.
+revised data and does not reproduce a real-time forecast.
 
 A single final table extends the sample through 2025Q4. It shows how lag
 selection and AR(1) estimates depend on the sample. The main analysis uses
@@ -55,18 +60,21 @@ Positive AR(1) persistence describes decay, not an average business-cycle period
 
 ### Relevant concepts
 
-- Real GDP levels versus quarterly growth; annual-rate levels versus annualised growth.
+- GNP versus GDP; levels versus quarterly growth; annual-rate levels versus annualised growth.
 - ACF and PACF; AR(p); conditional OLS; intercept and long-run mean.
 - AIC/BIC; common hold-back; order selection versus residual adequacy.
 - Stability; persistence; impulse responses; sample sensitivity.
+- Complex dynamic eigenvalues; oscillatory period and damping; model-implied periods versus observed cycles.
 - Forecast origin; one-step forecasts; held-out observations; forecast errors.
 - Prediction intervals; parameter uncertainty; revised versus real-time observations.
 
 ### To do
 
 Explain why candidate orders must be compared on the same dependent-variable
-sample. Interpret the AR(1) coefficients and long-run means, and calculate the
-effect of a one-point growth innovation after one and two quarters. Interpret
+sample. Interpret both models' coefficients and long-run means, and calculate the
+effect of a one-point growth innovation after one and two quarters. Calculate
+the AR(3) oscillatory period and envelope half-life, explaining why the former
+is not the mean duration of dated business cycles. Interpret
 the 2020Q1 forecasts and errors, distinguishing model uncertainty from an
 exceptional event. Explain why adding 2020-2025 changes the selected order and
 why AR(0) selection is not proof of an absence of economic dynamics.
@@ -82,26 +90,25 @@ the existing course dataset, originally retrieved on 9 October 2026 from the
 Dates without French market returns are excluded; no market holiday is filled.
 The market is the broad value-weighted US CRSP equity market, not a price index.
 
-`quarterly_real_gdp.csv` contains US and German GDP for 120 complete quarters,
-1996Q1-2025Q4. The first quarter is a growth base. Main analysis stops at 2019Q4;
+`quarterly_real_gnp.csv` contains US real GNP for 316 complete quarters,
+1947Q1-2025Q4. The first quarter is a growth base. Main analysis stops at 2019Q4;
 later observations are used only for the held-out forecast outcome and final
-sensitivity comparison. US GDP comes from the BEA's
-[GDPC1](https://fred.stlouisfed.org/series/GDPC1), in billions of chained 2017
-dollars at a seasonally adjusted annual rate. Germany comes directly
-from [Eurostat's quarterly national accounts](https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table?lang=en),
-`namq_10_gdp`, with `freq=Q`, `unit=CLV20_MEUR`, `s_adj=SCA`, `na_item=B1GQ`
-and `geo=DE`: chain-linked volumes (2020), million euro, seasonally and
-calendar adjusted. Sources were retrieved on 13 October 2026; the US extract
-was already downloaded for the Okun notebook on that date. The German values
-are extracted from the archived Eurostat response. The fixed level sample
-begins in 1996Q1.
+sensitivity comparison. Values come from the BEA's
+[NIPA Table 1.7.6 workbook](https://apps.bea.gov/national/Release/XLS/Survey/Section1All_xls.xlsx),
+quarterly worksheet `T10706-Q`, line 4, code `A001RX`, retrieved on 14 October
+2026 (data published 30 September 2026). Divide its millions of chained 2017
+dollars by 1,000 to store billions, matching the equivalent
+[GNPC96 series on FRED](https://fred.stlouisfed.org/series/GNPC96). The levels
+are seasonally adjusted annual rates. Several observations were cross-checked
+against FRED. GNP concerns production attributable to US residents, domestically
+and abroad; GDP concerns production within the country's borders.
 
-Eurostat flags German 2023Q1-2025Q4 observations as provisional; these remain
-in the final sensitivity comparison. No missing quarters
-are interpolated. Growth is `100 * diff(log(GDP))`, without annualisation.
+No missing quarters are interpolated. Growth is `100 * diff(log(GNP))`, without annualisation.
 Source URLs, retrieval dates, source flags, transformations and SHA-256 hashes
-are recorded in `data_sources.json`. Eurostat/European Union attribution is
-retained; the US series is public-domain data with BEA/FRED attribution.
+are recorded in `data_sources.json`. The series is public-domain BEA data with
+BEA/FRED attribution. Current revised values are not the original data vintage
+of historical GNP papers; this notebook fits a linear AR model, not a replication
+of threshold or Markov-switching models.
 
 ## Running the notebooks
 
@@ -109,4 +116,3 @@ Follow the [shared setup instructions](../README.md). In Colab, upload the full
 `Notebooks` folder to My Drive and preserve `Time_Series` and its CSV files.
 The setup also supports local Jupyter from the course, `Notebooks` or tutorial
 folder. No live data download or API key is required.
-

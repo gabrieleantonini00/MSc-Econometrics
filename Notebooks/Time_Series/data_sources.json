@@ -1,52 +1,6 @@
 {
   "description": "Frozen teaching datasets for Tutorial V; notebooks require no live downloads.",
-  "prepared_on": "2026-10-13",
-  "gdp": {
-    "retrieved_on": "2026-10-13",
-    "sources": {
-      "United States": {
-        "series": "GDPC1",
-        "url": "https://fred.stlouisfed.org/series/GDPC1",
-        "download_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GDPC1&cosd=1979-10-01&coed=2025-12-31",
-        "input": "tmp/rolling-okun/GDPC1.csv; downloaded earlier on 2026-10-13",
-        "raw_sha256": "24e20e2d2ae950bde53c86c40ce27b9939487a1303577b4d1ff6a06990a05502"
-      },
-      "Germany": {
-        "dataset": "namq_10_gdp",
-        "unit": "CLV20_MEUR",
-        "s_adj": "SCA",
-        "na_item": "B1GQ",
-        "url": "https://ec.europa.eu/eurostat/databrowser/view/namq_10_gdp/default/table?lang=en",
-        "download_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/namq_10_gdp?geo=DE&geo=IT&unit=CLV20_MEUR&s_adj=SCA&na_item=B1GQ&sinceTimePeriod=1995-Q1&untilTimePeriod=2025-Q4",
-        "updated": "2026-10-09T23:00:00+0200",
-        "raw_sha256": "1ef19c7137cf1c8cead7e294109226ef11128e9f7703eeb140ae492b9ad16a55",
-        "extraction": "Germany only (geo=DE), from the archived Eurostat response"
-      }
-    },
-    "units": {
-      "United States": "Billions of chained 2017 USD, seasonally adjusted annual rate; BEA",
-      "Germany": "Chain linked volumes (2020), million euro, seasonally and calendar adjusted; Eurostat"
-    },
-    "level_sample": "1996Q1-2025Q4 (120 quarters); first quarter is a growth base",
-    "growth_sample": "1996Q2-2025Q4 (119 quarters)",
-    "sample_choice": "Main analysis: 1996Q2-2019Q4, before the pandemic. The complete contiguous sample through 2025Q4 is used only for the final sensitivity comparison.",
-    "source_flags": {
-      "Germany": "2023Q1-2025Q4 flagged provisional (p)"
-    },
-    "transform": "100 * first difference of natural log of quarterly real GDP; not annualised",
-    "vintage": "Current-vintage revised values downloaded on preparation date, not a real-time vintage.",
-    "copyright": {
-      "United States": "Public domain; BEA/FRED attribution",
-      "Germany": "European Union/Eurostat; attribution retained; https://ec.europa.eu/info/legal-notice_en"
-    },
-    "countries": [
-      "United States",
-      "Germany"
-    ],
-    "main_analysis_sample": "1996Q2-2019Q4 (95 growth quarters); candidate models share 87 estimation quarters, 1998Q2-2019Q4, with hold_back=8",
-    "forecast": "One-step historical forecast of 2020Q1 from origin 2019Q4; the observed 2020Q1 value is held out of order selection and estimation.",
-    "revised_on": "2026-10-14"
-  },
+  "prepared_on": "2026-10-14",
   "market": {
     "source": "Kenneth French Data Library, daily Fama/French research factors",
     "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_factors.html",
@@ -62,19 +16,47 @@
     "notebook_transform": "100 * log(1 + market_return); observations ordered by trading session; no holiday filling"
   },
   "files": {
-    "quarterly_real_gdp.csv": {
-      "rows": 120,
-      "sha256": "ae78abb8411e7110c03f6d090b6cf0eb2a39f9705a8b1df72087cc3e8d15b550",
-      "columns": [
-        "quarter",
-        "United States",
-        "Germany"
-      ]
-    },
     "daily_us_market_returns.csv": {
       "rows": 4024,
       "sha256": "018b08b5c63fa1a052cf4d9d1eecb3309949e4712881d678bbf4054b42cc84d1"
+    },
+    "quarterly_real_gnp.csv": {
+      "rows": 316,
+      "columns": [
+        "quarter",
+        "real_gnp"
+      ],
+      "sha256": "b148958e5730d9a5693e78ce64ab04797872ad8ff62518f95902cb9eb9f4937c"
     }
   },
-  "distribution": "Course repository: https://github.com/gabrieleantonini00/MSc-Econometrics/tree/main/Notebooks/Time_Series"
+  "distribution": "Course repository: https://github.com/gabrieleantonini00/MSc-Econometrics/tree/main/Notebooks/Time_Series",
+  "gnp": {
+    "country": "United States",
+    "series": "Real Gross National Product",
+    "retrieved_on": "2026-10-14",
+    "source": "U.S. Bureau of Economic Analysis",
+    "download_url": "https://apps.bea.gov/national/Release/XLS/Survey/Section1All_xls.xlsx",
+    "table": "NIPA 1.7.6, quarterly worksheet T10706-Q, line 4, BEA code A001RX",
+    "source_units": "Millions of chained 2017 USD, seasonally adjusted annual rate",
+    "csv_units": "Billions of chained 2017 USD, seasonally adjusted annual rate; source levels divided by 1000",
+    "published_on": "2026-09-30",
+    "raw_sha256": "28689cdede2e4936b16de46a802e9308fba75c39e14b3ddc4752aa3102f8ebc8",
+    "equivalent_fred_series": "GNPC96",
+    "fred_url": "https://fred.stlouisfed.org/series/GNPC96",
+    "fred_spot_checks": {
+      "1947Q1": 2196.821,
+      "2019Q4": 21251.168,
+      "2020Q1": 20980.706,
+      "2025Q4": 24178.258
+    },
+    "level_sample": "1947Q1-2025Q4 (316 quarters); first quarter supplies the growth base",
+    "main_analysis_sample": "1947Q2-2019Q4 (291 growth quarters); candidate models use the same 283 quarters, 1949Q2-2019Q4, with hold_back=8",
+    "transform": "100 * diff(log(real_gnp)); quarterly log growth, not annualised",
+    "forecast": "One-step historical forecasts of 2020Q1 from origin 2019Q4 using AR(1) and AR(3); observed 2020Q1 is held out of estimation and selection.",
+    "sensitivity_sample": "Extend the contiguous growth sample through 2025Q4 (315 observations)",
+    "vintage": "Revised values available on retrieval date, not a real-time vintage or an exact replication of historical papers",
+    "copyright": "Public-domain BEA data; BEA/FRED attribution retained",
+    "notebook": "GNP_Growth_AR_Forecasting.ipynb",
+    "notebook_scope": "Compare AR(1) selected by BIC and AR(3) selected by AIC on the same pre-2020 sample; impulse responses and period/damping of the AR(3) complex mode, not average observed business-cycle duration."
+  }
 }
