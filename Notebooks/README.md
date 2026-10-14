@@ -114,8 +114,8 @@ the included data; the Monte Carlo notebook generates its own observations.
 - [Autocorrelations](Time_Series/Autocorrelations.ipynb): daily US market log
   returns in 2021-2025, ACF, a five-lag Ljung-Box test and dependence in return magnitudes.
 - [US real GNP growth and AR forecasting](Time_Series/GNP_Growth_AR_Forecasting.ipynb):
-  quarterly US real GNP; AR(1)/AR(3), persistence and next-quarter forecasts,
-  with an optional oscillatory-period extension and a short comparison through 2025.
+  quarterly US real GNP; AR(1)/AR(3), persistence, model-implied oscillations
+  and next-quarter forecasts, with a short comparison through 2025.
 
 See the [exercise and data description](Time_Series/README.md). Data are included
 in the subfolder.

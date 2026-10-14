@@ -44,7 +44,11 @@ Compare contiguous AR orders 0-8 on the same 283 estimation quarters. BIC
 selects AR(1), while AIC selects AR(3). Compare both models' intercepts, lag coefficients,
 long-run mean, coefficient uncertainty and residual Ljung-Box p-value.
 Compare their responses to a one-percentage-point growth innovation, with a
-separate enlarged view of the small oscillatory tail. Forecast 2020Q1 with both models
+separate enlarged view of the small oscillatory tail. The AR(3) complex pair
+implies a period of about 10.7 quarters (2.7 years), with an envelope half-life
+of about one quarter. Its rapid damping makes this a model-implied oscillation,
+rather than an estimate of the average duration of observed business cycles.
+Forecast 2020Q1 with both models
 from origin 2019Q4 and compare with the held-out observation; the prediction
 interval conditions on the estimated model. This historical exercise uses
 revised data and does not reproduce a real-time forecast.
@@ -60,6 +64,7 @@ Positive AR(1) persistence describes decay, not an average business-cycle period
 - ACF and PACF; AR(p); conditional OLS; intercept and long-run mean.
 - AIC/BIC; common hold-back; order selection versus residual adequacy.
 - Stability; persistence; impulse responses; sample sensitivity.
+- Complex dynamic eigenvalues; oscillatory period and damping; model-implied periods versus observed cycles.
 - Forecast origin; one-step forecasts; held-out observations; forecast errors.
 - Prediction intervals; parameter uncertainty; revised versus real-time observations.
 
@@ -67,21 +72,12 @@ Positive AR(1) persistence describes decay, not an average business-cycle period
 
 Explain why candidate orders must be compared on the same dependent-variable
 sample. Interpret both models' coefficients and long-run means, and calculate the
-effect of a one-point growth innovation after one and two quarters. Interpret
+effect of a one-point growth innovation after one and two quarters. Calculate
+the AR(3) oscillatory period and envelope half-life, explaining why the former
+is not the mean duration of dated business cycles. Interpret
 the 2020Q1 forecasts and errors, distinguishing model uncertainty from an
 exceptional event. Explain why adding 2020-2025 changes the selected order and
 why AR(0) selection is not proof of an absence of economic dynamics.
-
-### Optional extension: the oscillatory period implied by AR(3)
-
-The notebook includes an optional calculation of the AR(3) oscillatory period
-and its amplitude-envelope half-life from the complex dynamic eigenvalues.
-The complex pair implies a period of about 10.7 quarters (2.7 years), with an
-envelope half-life of about one quarter. Its rapid damping makes this a
-model-implied oscillation, rather than an estimate of the average duration of
-observed business cycles. Compare the period with the damping and the enlarged
-impulse-response tail. This extension is not required for the main dynamics
-and forecasting exercises.
 
 ## Data
 
