@@ -121,15 +121,9 @@ sample-size correction and approximate t inference.
 - Full-sample versus rolling estimates; window length; sampling variation
   versus parameter instability.
 
-### To do
-
-Interpret the intercept and slope, including their units. Calculate the fitted
-unemployment change at GDP growth rates of -1% and 1%. Comment on the fitted
-line and rolling estimates, paying attention to the unusual quarters in 2020.
-Explain why a changing rolling slope alone does not establish a structural break.
-Discuss possible endogeneity, its consequences for OLS estimates and whether
-HAC standard errors address it.
-All quarters remain in estimation.
+The notebook discusses possible endogeneity and its consequences for OLS,
+as well as the limits of HAC standard errors. All quarters, including the
+unusual observations in 2020, remain in estimation.
 
 ## Data
 
