@@ -89,7 +89,7 @@ only one copy in this subfolder.
   of coefficients, standard errors, p-values, confidence intervals and model fit.
 
 - [Heteroskedasticity](OLS/Heteroskedasticity.ipynb): household income and food
-  expenditure; residual plots, a variance test, and conventional versus HC3
+  expenditure; residual plots and conventional versus HC3
   standard errors and confidence intervals.
 
 - [Monte Carlo simulation](OLS/Monte_Carlo_Simulation.ipynb): repeated samples
@@ -101,7 +101,7 @@ only one copy in this subfolder.
   interpretation of parameter stability.
 
 - [Okun's law](OLS/Rolling_Regression_Parameter_Stability.ipynb): quarterly US
-  GDP growth and unemployment changes; linear and quadratic OLS, coefficient
+  GDP growth and unemployment changes; linear OLS, coefficient
   interpretation and 40-quarter rolling slopes.
 
 See the [exercise and data description](OLS/README.md). Empirical notebooks use

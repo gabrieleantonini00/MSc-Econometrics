@@ -1,5 +1,5 @@
 {
-  "description": "Quarterly US real GDP and unemployment for linear, quadratic and rolling OLS.",
+  "description": "Quarterly US real GDP and unemployment for full-sample and rolling linear OLS.",
   "retrieved_on": "2026-10-13",
   "sources": {
     "real_gdp": {
@@ -37,8 +37,7 @@
   },
   "transformations": [
     "growth = 100 * (real_gdp / lagged_real_gdp - 1), not annualised",
-    "change_u = difference of quarterly unemployment rate, in percentage points",
-    "growth_sq = growth squared"
+    "change_u = difference of quarterly unemployment rate, in percentage points"
   ],
   "paper": {
     "authors": "Ball, Leigh and Loungani",
@@ -49,8 +48,8 @@
   },
   "scope": "Teaching application for Tutorial IV, with included data; the fuller original is retained outside the student folder.",
   "model": {
-    "quadratic": "Full-sample model only",
     "rolling": "Linear model only, 40 consecutive quarters",
-    "covariance": "HAC, Bartlett weights, four quarterly lags, finite-sample correction, approximate t inference"
+    "covariance": "HAC, Bartlett weights, four quarterly lags, finite-sample correction, approximate t inference",
+    "full_sample": "Linear OLS model"
   }
 }

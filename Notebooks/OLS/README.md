@@ -39,20 +39,18 @@ conventional and HC3 standard errors on the same observations.
 
 - Homoskedasticity versus heteroskedasticity; conditional mean versus conditional variance.
 - Residual plots; interpretation of vertical dispersion at comparable income levels.
-- Studentised Breusch-Pagan test: null hypothesis, LM statistic and p-value.
 - OLS coefficients versus their estimated uncertainty; robust standard errors.
 - Confidence intervals; statistical versus economic significance; limits of robust inference.
 
 ### To do
 
 Describe the pattern in the residual plots and distinguish a changing spread
-from a changing conditional mean. Interpret the variance-test p-value and
-compare the income coefficient's standard error and confidence interval before
+from a changing conditional mean. Compare the income coefficient's standard error and confidence interval before
 and after HC3. Explain why the coefficient and fitted line remain unchanged.
 
 The full-sample plot contains all households. A second panel enlarges the range
 covering the lowest 95% of incomes, with different axis ranges. This affects only
-the display: all regressions, tests and grouped summaries use all 235 observations.
+the display: all regressions and grouped summaries use all 235 observations.
 The highest-income observation is influential; it is retained throughout.
 The notebook contains the analysis and explanations, with no numbered sections
 or separate assignment prompts.
@@ -109,25 +107,26 @@ Notebook: [Rolling_Regression_Parameter_Stability.ipynb](Rolling_Regression_Para
 
 Analyse quarterly US real GDP growth and unemployment changes for 1980Q1-2025Q3
 (183 quarters). Use simple percentage GDP growth, without annualisation, and
-unemployment changes in percentage points. Compare linear and quadratic OLS
-on the same sample, then examine the linear model in 40-quarter rolling windows.
-The quadratic model is estimated only over the full sample; no logarithms are used.
+unemployment changes in percentage points. Estimate a linear OLS model over
+the full sample, then examine it in 40-quarter rolling windows. No logarithms are used.
 All models use HAC standard errors with four quarterly lags, Bartlett weights,
 sample-size correction and approximate t inference.
 
 ### Relevant concepts
 
 - Growth versus levels; percentage changes versus percentage points.
-- Quadratic regressors; linearity in coefficients; curvature; local slopes.
-- Fitted changes; same-sample comparisons; influential observations;
-  functional form versus parameter instability.
+- Linear OLS; intercept and slope; fitted unemployment changes; coefficient units.
+- HAC standard errors; confidence intervals; influential observations.
+- Full-sample versus rolling estimates; window length; sampling variation
+  versus parameter instability.
 
 ### To do
 
-Compare the quadratic model's local slope at growth rates of -1% and 1%.
-Explain why its growth coefficient alone is not a constant slope at every
-growth rate. Comment on the fitted curves and rolling estimates, paying
-attention to the unusual quarters in 2020. All quarters remain in estimation.
+Interpret the intercept and slope, including their units. Calculate the fitted
+unemployment change at GDP growth rates of -1% and 1%. Comment on the fitted
+line and rolling estimates, paying attention to the unusual quarters in 2020.
+Explain why a changing rolling slope alone does not establish a structural break.
+All quarters remain in estimation.
 
 ## Data
 
