@@ -13,6 +13,7 @@ Open a notebook with Google Colab and run all cells, starting with **Environment
 - [Tutorial 3 - Heteroskedasticity: graphical evidence and robust inference](Tutorials/Tutorial%203.pdf).
 - [Tutorial 4 - Rolling CAPM, Okun's law and structural breaks](Tutorials/Tutorial%204.pdf).
 - [Tutorial 5 - Weak stationarity, autocorrelations and autoregressive forecasting](Tutorials/Tutorial%205.pdf).
+- [Tutorial 6 - MA(1) and AR(1): moments, autocorrelations and persistence](Tutorials/Tutorial%206.pdf).
 
 ## Notebooks
 
