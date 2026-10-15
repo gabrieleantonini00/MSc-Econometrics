@@ -14,17 +14,17 @@ distinguishing economic significance, statistical significance and explanatory p
 
 - Simple and multiple regression; intercept and slope coefficients; units.
 - Partial associations and interpretation holding other regressors constant.
-- Standard errors; t-tests; p-values; confidence intervals; Type I error.
+- Robust standard errors; t-tests; p-values; confidence intervals; Type I error.
 - Statistical versus economic significance.
 - Fitted values and residuals; R-squared and adjusted R-squared; omitted variable bias.
 
 ### To do
 
-Using the estimated multiple-regression coefficients, calculate the fitted energy
-excess return when market excess return is 1% and the Brent price change is 10%.
-Compare it with the fitted value when both regressors are zero. Explain the
-contribution of each coefficient and why the fitted value is not a guaranteed
-realised return.
+Using the estimated multiple-regression coefficients, calculate fitted energy
+excess returns for (i) market excess return = 1% and Brent price change = 10%,
+and (ii) market excess return = -1% and Brent price change = -10%.
+Calculate the difference (first minus second) and each regressor's contribution
+to it.
 
 ## Heteroskedasticity (Tutorial III)
 
