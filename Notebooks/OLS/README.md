@@ -117,6 +117,7 @@ sample-size correction and approximate t inference.
 - Growth versus levels; percentage changes versus percentage points.
 - Linear OLS; intercept and slope; fitted unemployment changes; coefficient units.
 - HAC standard errors; confidence intervals; influential observations.
+- Exogeneity; simultaneity; omitted variables; limits of HAC inference.
 - Full-sample versus rolling estimates; window length; sampling variation
   versus parameter instability.
 
@@ -126,6 +127,8 @@ Interpret the intercept and slope, including their units. Calculate the fitted
 unemployment change at GDP growth rates of -1% and 1%. Comment on the fitted
 line and rolling estimates, paying attention to the unusual quarters in 2020.
 Explain why a changing rolling slope alone does not establish a structural break.
+Discuss possible endogeneity, its consequences for OLS estimates and whether
+HAC standard errors address it.
 All quarters remain in estimation.
 
 ## Data
