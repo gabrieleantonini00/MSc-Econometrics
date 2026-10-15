@@ -1,6 +1,6 @@
-# Time Series (Tutorial V)
+# Time Series (Tutorials V, VII and VIII)
 
-Two notebooks develop the old exercises 14-16. They follow the same structure
+Four notebooks develop the old exercises 14-16 and 19-22. They follow the same structure
 as the OLS notebooks: environment setup, libraries, local data, analysis and
 explanations. Sections are unnumbered; assignment prompts stay in this README.
 
@@ -79,6 +79,72 @@ the 2020Q1 forecasts and errors, distinguishing model uncertainty from an
 exceptional event. Explain why adding 2020-2025 changes the selected order and
 why AR(0) selection is not proof of an absence of economic dynamics.
 
+## Volatility clustering, ARCH and GARCH (Tutorial VIII, old exercises 19, 21 and 22)
+
+Notebook: [Volatility_Clustering.ipynb](Volatility_Clustering.ipynb)
+
+Use 1,249 daily EUR/USD log changes in 2021-2025. Compare signed changes and
+squared demeaned changes through time, in the empirical distribution and in
+their ACFs. Compare AR orders 0-10 on the same 1,239 observations. Both AIC and
+BIC select AR(0) for signed changes; for squared changes AIC selects AR(9)
+and BIC AR(1). Report the distinct selected models with five-lag HAC inference.
+
+Derive Gaussian ARCH(1) unconditional variance and kurtosis, distinguishing
+the finite-variance condition from the stronger finite-fourth-moment condition.
+Then test 10-lag ARCH effects in constant-mean residuals and estimate Gaussian
+constant-variance, ARCH(1), ARCH(2) and GARCH(1,1), (1,2), (2,1), (2,2) models
+on all 1,249 observations. AIC selects GARCH(2,2), while BIC selects GARCH(1,1).
+Check convergence and inspect robust parameter uncertainty and standardised
+residual diagnostics.
+
+Compare conditional standard deviations with lagged rolling estimates over
+10, 20 and 50 observations and explicit EWMA recursions with lambda 0.94 and
+0.97. All curves use daily percentage units and compatible information timing.
+A parametric-bootstrap LR comparison uses 199 replications to compare the
+AIC-selected order with the reduced order, while explaining boundary and
+post-selection limitations. Forecast standard deviations one and two observed
+quotations ahead from the historical origin 31 December 2025.
+
+### Relevant concepts
+
+- Exchange-rate quotations and log changes; volatility clustering; noisy variance proxies.
+- AR order selection; AIC versus BIC; coefficient interpretation and HAC inference.
+- Gaussian ARCH(1); conditional versus unconditional moments; variance versus kurtosis existence.
+- ARCH LM test; conditional-variance constraints; Gaussian likelihood and robust covariance.
+- GARCH persistence; standardised residuals; model adequacy versus information-criterion selection.
+- Rolling standard deviations; EWMA recursions; variance versus standard deviation; information timing.
+- Likelihood-ratio statistic; boundary restrictions; bootstrap reference and Monte Carlo uncertainty.
+- Historical-origin forecasts; one- and two-step variance propagation; model and order uncertainty.
+
+### To do
+
+Choose an asset and carry out a similar analysis of its daily returns,
+adapting the notebook's code. Use prices from an official or primary source
+and document the source, sample period and relevant price adjustments.
+Plot log returns and compare their ACF with that of squared demeaned returns.
+Model volatility using ARCH(1) and GARCH(1,1) with the same mean specification
+and estimation sample; compare AIC and BIC. For your preferred model, plot the
+fitted conditional volatility, inspect the ACF of squared standardised
+residuals and comment briefly on persistence and any remaining volatility
+clustering. Compare the main findings with EUR/USD.
+
+## Unit-root testing: EUR/USD levels and changes (Tutorial VII, old exercise 20)
+
+Notebook: [Unit_Root_Testing.ipynb](Unit_Root_Testing.ipynb)
+
+Analyse 192 monthly observations, January 2010-December 2025. Calculate log
+changes from the last published USD-per-EUR quotation of each month. Plot
+levels and changes, then apply ADF tests with AIC/BIC selection of up to
+12 augmentation lags. Both criteria choose zero here. The level test does not
+reject a unit root at 5%; the log-change test rejects. A further comparison
+includes a deterministic linear trend in the level test.
+
+### Relevant concepts
+
+- Exchange-rate levels versus log changes; monthly observation dates and quotation units.
+- Unit-root null; ADF regression; AIC/BIC augmentation-lag selection and nonstandard critical values.
+- Rejection versus non-rejection; deterministic terms; unit roots versus broader stationarity requirements.
+
 ## Data
 
 `daily_us_market_returns.csv` contains 4,024 trading sessions, 2010-2025, with
@@ -110,9 +176,34 @@ BEA/FRED attribution. Current revised values are not the original data vintage
 of historical GNP papers; this notebook fits a linear AR model, not a replication
 of threshold or Markov-switching models.
 
+`daily_eur_usd.csv` contains 4,023 published daily quotations from December 2009
+through December 2025, extracted directly from the
+[Federal Reserve Board's H.10 historical euro table](https://www.federalreserve.gov/releases/h10/hist/dat00_eu.htm).
+The equivalent FRED series is [DEXUSEU](https://fred.stlouisfed.org/series/DEXUSEU).
+The rate is US dollars per euro, not seasonally adjusted: a rise means euro
+appreciation against the dollar. These are New York noon buying rates, not
+exchange closing prices. Dates labelled ND by the source are omitted without
+interpolation, forward filling or inserted zero changes. The volatility notebook
+selects all 1,249 published quotations in 2021-2025 after calculating daily log changes.
+
+`monthly_eur_usd.csv` contains 193 observations derived from the same daily
+source by retaining the last published quotation and its actual date in each
+calendar month. December 2009 supplies only the first change's base, leaving
+192 months in 2010-2025 for the unit-root analysis. Both notebooks calculate
+`100 * diff(log(usd_per_eur))`; these are exchange-rate changes rather than
+interest-inclusive investment returns.
+
+The official source was retrieved on 15 October 2026. Its URL, raw-response hash,
+omitted-observation count, transformations, definitions and CSV hashes are
+recorded in `tutorial7_data_sources.json`. These are public-domain Federal Reserve
+data, with Federal Reserve/FRED attribution retained.
+
 ## Running the notebooks
 
 Follow the [shared setup instructions](../README.md). In Colab, upload the full
 `Notebooks` folder to My Drive and preserve `Time_Series` and its CSV files.
 The setup also supports local Jupyter from the course, `Notebooks` or tutorial
 folder. No live data download or API key is required.
+
+The volatility notebook uses `arch>=8.0,<9`. Its library cell installs this
+dependency only if missing; local users can also install the shared requirements.

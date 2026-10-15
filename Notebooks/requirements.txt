@@ -4,3 +4,4 @@ matplotlib
 scipy
 statsmodels
 jupyterlab
+arch>=8.0,<9

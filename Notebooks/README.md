@@ -32,9 +32,14 @@ Notebooks/
     README.md
     Autocorrelations.ipynb
     GNP_Growth_AR_Forecasting.ipynb
+    Volatility_Clustering.ipynb
+    Unit_Root_Testing.ipynb
     daily_us_market_returns.csv
     quarterly_real_gnp.csv
+    daily_eur_usd.csv
+    monthly_eur_usd.csv
     data_sources.json
+    tutorial7_data_sources.json
 ```
 
 ## Google Colab
@@ -55,7 +60,8 @@ Alternatively, if the complete folder is already uploaded and extracted in the
 Colab runtime, set `NOTEBOOKS_ROOT = "/content/Notebooks"`. Files stored only in
 the runtime must be uploaded again after the runtime is reset.
 
-Colab provides the analysis libraries used here. Data are included as CSV files,
+Colab provides the common analysis libraries. The volatility notebook installs
+the additional `arch` library if it is missing. Data are included as CSV files,
 so no data-source download or API key is required. See the official
 [Colab file and Google Drive examples](https://colab.research.google.com/notebooks/io.ipynb)
 and [Colab FAQ](https://research.google.com/colaboratory/faq.html).
@@ -109,13 +115,19 @@ the included data; the Monte Carlo notebook generates its own observations.
 
 ## Time Series
 
-[Time Series](Time_Series/) contains the Tutorial V notebooks:
+[Time Series](Time_Series/) contains the Tutorial V, VII and VIII notebooks:
 
 - [Autocorrelations](Time_Series/Autocorrelations.ipynb): daily US market log
   returns in 2021-2025, ACF, a five-lag Ljung-Box test and dependence in return magnitudes.
 - [US real GNP growth and AR forecasting](Time_Series/GNP_Growth_AR_Forecasting.ipynb):
   quarterly US real GNP; AR(1)/AR(3), persistence, model-implied oscillations
   and next-quarter forecasts, with a short comparison through 2025.
+- [Volatility clustering, ARCH and GARCH](Time_Series/Volatility_Clustering.ipynb)
+  (Tutorial VIII): official Federal Reserve EUR/USD daily changes; AR comparisons,
+  ARCH(1) kurtosis, ARCH/GARCH estimation, rolling/EWMA volatility and forecasts.
+- [Unit-root testing](Time_Series/Unit_Root_Testing.ipynb) (Tutorial VII): official
+  Federal Reserve EUR/USD monthly levels and log changes; ADF tests with AIC/BIC
+  augmentation-lag selection and a deterministic-trend comparison.
 
 See the [exercise and data description](Time_Series/README.md). Data are included
 in the subfolder.

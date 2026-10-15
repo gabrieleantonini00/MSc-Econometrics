@@ -1,0 +1,47 @@
+{
+  "description": "Official Federal Reserve H.10 data for exchange-rate unit roots and ARCH/GARCH teaching applications.",
+  "prepared_on": "2026-10-15",
+  "source": {
+    "provider": "Board of Governors of the Federal Reserve System (US)",
+    "release": "H.10 Foreign Exchange Rates",
+    "series": "DEXUSEU",
+    "source_url": "https://www.federalreserve.gov/releases/h10/",
+    "fred_url": "https://fred.stlouisfed.org/series/DEXUSEU",
+    "download_url": "https://www.federalreserve.gov/releases/h10/hist/dat00_eu.htm",
+    "retrieved_on": "2026-10-15",
+    "raw_sha256": "fb20f91a057bbf8c839d2a3c78887319e4485195299b9dea21b577e90c33a304",
+    "units": "US dollars to one euro; not seasonally adjusted",
+    "definition": "Noon buying rates in New York City for cable transfers payable in foreign currencies.",
+    "licence": "Public domain; Federal Reserve/FRED citation retained."
+  },
+  "preparation": {
+    "missing_observations_omitted": 174,
+    "missing_policy": "Omit dates with no published quotation; no interpolation, forward filling or zero-return insertion.",
+    "monthly_aggregation": "Last available H.10 quotation in each calendar month; actual observation date retained in the monthly CSV.",
+    "daily_analysis": "2021-2025; calculate changes from the complete daily extract before selecting the sample.",
+    "monthly_analysis": "2010-01 to 2025-12; December 2009 provides only the first-change base.",
+    "transform": "100 * difference of natural log of USD per EUR. Positive change means euro appreciation against the dollar.",
+    "return_scope": "Exchange-rate log changes, not interest-inclusive currency investment or excess returns."
+  },
+  "files": {
+    "daily_eur_usd.csv": {
+      "rows": 4023,
+      "columns": [
+        "usd_per_eur"
+      ],
+      "sha256": "424683ede1ffd3c1fcaa74ad15e9c84d9ee099e3ba0e6511b988b8df3546d64f"
+    },
+    "monthly_eur_usd.csv": {
+      "rows": 193,
+      "columns": [
+        "usd_per_eur",
+        "observation_date"
+      ],
+      "sha256": "c84ebb1a922dde1913647bb75d8500c58c3d2d68c409c3494cdf775c67cc97ab"
+    }
+  },
+  "notebooks": [
+    "Volatility_Clustering.ipynb",
+    "Unit_Root_Testing.ipynb"
+  ]
+}

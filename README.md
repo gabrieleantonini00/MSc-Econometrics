@@ -14,4 +14,8 @@ Open a notebook with Google Colab and run all cells, starting with **Environment
 
 - [Time Series](Notebooks/Time_Series/): autocorrelations and the Ljung-Box test for daily US market returns in 2021-2025; pre-2020 US real GNP growth dynamics; AR(1)/AR(3), persistence, model-implied oscillations and next-quarter forecasts, with a short comparison through 2025.
 
+  Tutorial VII uses official Federal Reserve EUR/USD quotations for monthly
+  unit-root tests. Tutorial VIII covers daily volatility clustering, ARCH(1)
+  moments, ARCH/GARCH estimation and forecasts using the same official source.
+
 Each tutorial includes its data alongside the notebooks.
