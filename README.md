@@ -14,6 +14,8 @@ Open a notebook with Google Colab and run all cells, starting with **Environment
 - [Tutorial 4 - Rolling CAPM, Okun's law and structural breaks](Tutorials/Tutorial%204.pdf).
 - [Tutorial 5 - Weak stationarity, autocorrelations and autoregressive forecasting](Tutorials/Tutorial%205.pdf).
 - [Tutorial 6 - MA(1) and AR(1): moments, autocorrelations and persistence](Tutorials/Tutorial%206.pdf).
+- [Tutorial 7 - Stationarity, model identification and unit-root testing](Tutorials/Tutorial%207.pdf).
+- [Tutorial 8 - Volatility clustering, ARCH and GARCH models](Tutorials/Tutorial%208.pdf).
 
 ## Notebooks
 
