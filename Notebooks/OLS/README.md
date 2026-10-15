@@ -44,9 +44,9 @@ conventional and HC3 standard errors on the same observations.
 
 ### To do
 
-Describe the pattern in the residual plots and distinguish a changing spread
-from a changing conditional mean. Compare the income coefficient's standard error and confidence interval before
-and after HC3. Explain why the coefficient and fitted line remain unchanged.
+Using the estimated income slope, calculate the fitted change in annual food
+expenditure for a 250-franc increase in income. Convert the conventional and
+HC3 95% slope intervals into intervals for this fitted change.
 
 The full-sample plot contains all households. A second panel enlarges the range
 covering the lowest 95% of incomes, with different axis ranges. This affects only

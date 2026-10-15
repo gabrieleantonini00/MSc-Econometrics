@@ -10,6 +10,7 @@ Open a notebook with Google Colab and run all cells, starting with **Environment
 
 - [Tutorial 1 - Prices, return distributions and rolling inference](Tutorials/Tutorial%201.pdf).
 - [Tutorial 2 - OLS estimation, inference and omitted variable bias](Tutorials/Tutorial%202.pdf).
+- [Tutorial 3 - Heteroskedasticity: graphical evidence and robust inference](Tutorials/Tutorial%203.pdf).
 
 ## Notebooks
 
