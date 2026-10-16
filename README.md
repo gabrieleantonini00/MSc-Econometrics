@@ -26,3 +26,16 @@ Open a notebook with Google Colab and run all cells, starting with **Environment
 - [Time Series](Notebooks/Time_Series/): autocorrelations and Ljung-Box diagnostics for daily US market returns; autoregressive models and forecasts of US real GNP growth; EUR/USD unit-root tests; and volatility clustering, ARCH/GARCH modelling and forecasts, with rolling and EWMA volatility comparisons.
 
 Each tutorial includes its data alongside the notebooks.
+
+## Citation
+
+If you use or build upon the original notebooks, code, explanations, or analyses
+in this repository in your own work, please cite:
+
+Antonini, G. M. (2026). *MSc Econometrics: Python exercises and tutorials* [Educational materials and code]. [GitHub](https://github.com/gabrieleantonini00/MSc-Econometrics).
+
+Citation metadata are available in [CITATION.cff](CITATION.cff) and through
+GitHub's **Cite this repository** feature. Please identify the commit or version
+used. Third-party datasets and teaching materials should also be attributed to
+their original authors or providers; this citation does not replace those
+attributions.

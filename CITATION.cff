@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: If you use or build upon the original work in this repository, please cite it using the
+  metadata below.
+type: software
+authors:
+- family-names: Antonini
+  given-names: Gabriele Matteo
+title: 'MSc Econometrics: Python exercises and tutorials'
+url: https://github.com/gabrieleantonini00/MSc-Econometrics
+repository-code: https://github.com/gabrieleantonini00/MSc-Econometrics
+date-released: '2026-10-15'
